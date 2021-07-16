@@ -3,7 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Avatar from "../components/Avatar"
 import Button from '../components/Button'
-import Subir from '../components/subir'
+import Subir from '../components/Subir'
 import {
   loginWithGoogle,
   onAuthStateChanged
