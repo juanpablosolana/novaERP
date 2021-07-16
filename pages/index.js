@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Avatar from "../components/Avatar"
 import Button from '../components/Button'
+import Subir from '../components/subir'
 import {
   loginWithGoogle,
   onAuthStateChanged
@@ -33,18 +33,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Bienvenido a novaERP
-        </h1>
+        <h1 className={styles.title}>Bienvenido a novaERP</h1>
 
-        <p className={styles.description}>
-         Plataforma de control
-        </p>
-        {user === null && (
-          <Button onClick={handleClick}>
-            Iniciar Sesión
-          </Button>
-        )}
+        <p className={styles.description}>Plataforma de control</p>
+        {user === null && <Button onClick={handleClick}>Iniciar Sesión</Button>}
         {user && user.avatar && (
           <div>
             <Avatar
@@ -53,12 +45,10 @@ export default function Home() {
               text={user.username}
             />
             <div className={styles.grid}>
-              <Link href="/subir" >
-                <a className={styles.card}>
-                  <h2>Subir XML &rarr;</h2>
-                  <p>Sube tus archivos a la plataforma </p>
-                </a>
-              </Link>
+              <div className={styles.card}>
+                <h2>Subir XML &rarr;</h2>
+                <Subir/>
+              </div>
 
               <a href="https://nextjs.org/learn" className={styles.card}>
                 <h2>Consultar &rarr;</h2>
@@ -67,12 +57,8 @@ export default function Home() {
             </div>
           </div>
         )}
-
       </main>
-
-      <footer className={styles.footer}>
-          2021 novaERP
-      </footer>
+      <footer className={styles.footer}>2021 novaERP</footer>
     </div>
-  )
+  );
 }

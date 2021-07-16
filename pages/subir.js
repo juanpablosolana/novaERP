@@ -1,4 +1,3 @@
-export default function subir (){
-
- return <p>Subir</p>
-}
+import UploadForm from "../components/subir";
+ const Upload = () => <UploadForm />
+export default Upload
