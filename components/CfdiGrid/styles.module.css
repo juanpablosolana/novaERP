@@ -1,0 +1,6 @@
+.cfdiGrid{
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(auto, auto);
+}

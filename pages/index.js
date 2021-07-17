@@ -51,7 +51,7 @@ export default function Home() {
                 <Subir />
               </div>
               <div className={styles.card}>
-                <h2>Consultar &rarr;</h2>
+                <h2>Consultar CFDI &rarr;</h2>
                 <Cfdi />
               </div>
             </div>

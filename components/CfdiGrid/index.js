@@ -1,13 +1,14 @@
 import useFirestore from "../../hooks/useFirestore";
 import Link from 'next/link'
 import { motion } from "framer-motion";
+import styles from "./styles.module.css";
 
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs, loading } = useFirestore("cfdi");
-  console.log(docs)
+  // console.log(docs)
   return (
     <div className="top">
-      <div className="img-grid">
+      <div className={styles.cfdiGrid}>
         {docs &&
           docs.map((doc) => (
             <motion.div
@@ -17,13 +18,11 @@ const ImageGrid = ({ setSelectedImg }) => {
               whileHover={{ opacity: 1 }}
               onClick={() => setSelectedImg(doc.url)}
             >
-              <motion.h2>
+              <motion.h5>
                 <Link href={doc.url}>
-                <a>
-                {doc.name}
-                </a>
+                  <a>{doc.name.toUpperCase().substring(0, 14).slice(0,-4)}</a>
                 </Link>
-              </motion.h2>
+              </motion.h5>
             </motion.div>
           ))}
       </div>
