@@ -13,7 +13,7 @@ const useStorage = (file) => {
   useEffect(() => {
     // refrerences
     const storageRef = projectStorage.ref(file.name);
-    const collectionRef = projectFirestore.collection("flowers");
+    const collectionRef = projectFirestore.collection("cfdi");
 
     storageRef.put(file).on(
       "state_changed",

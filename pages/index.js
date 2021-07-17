@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import Avatar from "../components/Avatar"
 import Button from '../components/Button'
 import Subir from '../components/Subir'
+import Cfdi from '../components/CfdiGrid'
 import {
   loginWithGoogle,
   onAuthStateChanged
@@ -47,13 +48,12 @@ export default function Home() {
             <div className={styles.grid}>
               <div className={styles.card}>
                 <h2>Subir XML &rarr;</h2>
-                <Subir/>
+                <Subir />
               </div>
-
-              <a href="https://nextjs.org/learn" className={styles.card}>
+              <div className={styles.card}>
                 <h2>Consultar &rarr;</h2>
-                <p>Consulta el estatus de los CFDI </p>
-              </a>
+                <Cfdi />
+              </div>
             </div>
           </div>
         )}
