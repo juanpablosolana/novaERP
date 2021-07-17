@@ -20,7 +20,7 @@ const ImageGrid = ({ setSelectedImg }) => {
               <motion.h2>
                 <Link href={doc.url}>
                 <a>
-                {doc.id}
+                {doc.name}
                 </a>
                 </Link>
               </motion.h2>
