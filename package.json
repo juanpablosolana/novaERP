@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cfdi-to-json": "^1.2.8",
     "firebase": "^8.7.1",
     "framer-motion": "^4.1.17",
     "next": "11.0.1",

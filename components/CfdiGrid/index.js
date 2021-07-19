@@ -1,11 +1,11 @@
 import useFirestore from "../../hooks/useFirestore";
-import Link from 'next/link'
+import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./styles.module.css";
 
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs, loading } = useFirestore("cfdi");
-  // console.log(docs)
+  console.log(docs);
   return (
     <div className="top">
       <div className={styles.cfdiGrid}>
@@ -14,13 +14,12 @@ const ImageGrid = ({ setSelectedImg }) => {
             <motion.div
               className="img-wrap"
               key={doc.id}
-              layout
-              whileHover={{ opacity: 1 }}
               onClick={() => setSelectedImg(doc.url)}
             >
               <motion.h5>
+                {console.log("clic en modal")}
                 <Link href={doc.url}>
-                  <a>{doc.name.toUpperCase().substring(0, 14).slice(0,-4)}</a>
+                  <a>{doc.name.toUpperCase().substring(0, 14).slice(0, -4)}</a>
                 </Link>
               </motion.h5>
             </motion.div>
@@ -29,6 +28,8 @@ const ImageGrid = ({ setSelectedImg }) => {
     </div>
   );
 };
+
+
 
 // const LazyTrending = ()=>{
 //   const [show, setShow] = useState(false)
