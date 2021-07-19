@@ -10,7 +10,7 @@ export default function handler(req, res) {
     .then((data) => {
       jsonCfdi = CfdiToJson.parse({
         contentXML: `
-        ${data}}
+        ${data}
     `,
       });
         res.status(200).json(jsonCfdi);
