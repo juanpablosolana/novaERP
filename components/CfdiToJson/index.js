@@ -1,10 +1,10 @@
 import useSWR from "swr"
 
 export default function Cfdi({ cfdiUrl }) {
-  console.log(`${cfdiUrl}`)
+  console.log(`https://cfditojson.herokuapp.com/?id=${cfdiUrl}`)
 
   const fetcher = (url) =>
-    fetch(`${cfdiUrl}`).then((r) => r.json());
+    fetch(`https://cfditojson.herokuapp.com/?id=${cfdiUrl}`).then((r) => r.json());
   const { data } = useSWR('/api/data', fetcher)
  console.log(data);
 
