@@ -1,30 +1,36 @@
 import useFirestore from "../../hooks/useFirestore";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import styles from "./styles.module.css";
+import Modal from "react-modal";
+import CfdiToJson from '../../pages/cfdi/[cfdiCode]'
+import { useRouter } from "next/router";
 
-const ImageGrid = ({ setSelectedImg }) => {
+Modal.setAppElement("#__next");
+
+const ImageGrid = () => {
+  const router = useRouter()
   const { docs, loading } = useFirestore("cfdi");
-  console.log(docs);
+  // console.log(docs);
   return (
     <div className="top">
       <div className={styles.cfdiGrid}>
         {docs &&
           docs.map((doc) => (
-            <motion.div
-              className="img-wrap"
-              key={doc.id}
-              onClick={() => setSelectedImg(doc.url)}
-            >
-              <motion.h5>
-                {console.log("clic en modal")}
-                <Link href={doc.url}>
+            <div className="img-wrap" key={doc.id}>
+              <h5>
+                <Link href={`/?cfdiCode=${doc.url}`} as={`/cfdi/${doc.url}`}>
                   <a>{doc.name.toUpperCase().substring(0, 14).slice(0, -4)}</a>
                 </Link>
-              </motion.h5>
-            </motion.div>
+              </h5>
+            </div>
           ))}
       </div>
+      <Modal
+        isOpen={!!router.query.cfdiCode}
+        onRequestClose={() => router.push("/")}
+      >
+        <CfdiToJson cfdiUrl={router.query.cfdiCode} />
+      </Modal>
     </div>
   );
 };
