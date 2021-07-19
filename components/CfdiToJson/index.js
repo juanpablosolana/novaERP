@@ -1,4 +1,5 @@
 import useSWR from "swr"
+import styles from "./styles.module.css";
 
 export default function Cfdi({ cfdiUrl }) {
   console.log(`https://cfditojson.herokuapp.com/?id=${cfdiUrl}`)
@@ -8,7 +9,8 @@ export default function Cfdi({ cfdiUrl }) {
   const { data } = useSWR('/api/data', fetcher)
  console.log(data);
 
-  if (!data) return <div>Loading... wait patiently</div>;
+  if (!data) return <div className={styles.spinner}></div>;
+
 
   return (
     <div>
