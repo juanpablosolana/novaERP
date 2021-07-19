@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Cfdi from '../../components/CfdiToJson'
 
-export default function xmlPage() {
+export default function XmlPage() {
  const router = useRouter()
 //  console.log(router.query);
   const { cfdiCode, token } = router.query;
