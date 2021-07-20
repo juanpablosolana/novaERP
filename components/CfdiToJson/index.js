@@ -1,20 +1,24 @@
-import useSWR from "swr"
+import { useEffect, useState } from "react";
+import useSWR,{cache} from "swr"
 import styles from "./styles.module.css";
 
 export default function Cfdi({ cfdiUrl }) {
-  console.log(`https://cfditojson.herokuapp.com/?id=${cfdiUrl}`)
+  cache.clear()
+ /*  console.log(`https://cfditojson.herokuapp.com/?id=${cfdiUrl}`) */
+  const [mounted, setMounted] = useState(false)
 
-  const fetcher = (url) =>
+ useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const fetcher = _ =>
     fetch(`https://cfditojson.herokuapp.com/?id=${cfdiUrl}`).then((r) => r.json());
-  const { data } = useSWR('/api/data', fetcher)
-
-
-  if (!data) return <div className={styles.spinner}></div>;
-
+  let { data } = useSWR(mounted ? '/api/data' : null, fetcher)
 
   return (
-    <div>
-      <h2>{data}</h2>
+    <div className={styles.spinnerMain }>
+      <h2>{data ? data : <div className={styles.spinner}></div>}</h2>
     </div>
   );
+
 }
