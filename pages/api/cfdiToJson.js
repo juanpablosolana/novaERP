@@ -3,7 +3,8 @@ const soapRequest = require('easy-soap-request');
 
 export default function handler(req, res) {
   let {re,rr,tt,id} = req.query
-
+  re = re.replace(/&/gi, '&amp;')
+  rr = rr.replace(/&/gi, '&amp;')
 
   const url = 'https://consultaqr.facturaelectronica.sat.gob.mx/ConsultaCFDIService.svc';
   const sampleHeaders = {
@@ -27,9 +28,5 @@ export default function handler(req, res) {
     const { body } = response;
     res.send(convert.xml2json(body, { compact: true, spaces: 4 }))
   }
-  data()
-
-
-  // console.log(rr, re, tt, id)
-  //  res.status(200).json(re,rr,tt,id)
+    data()
 }
