@@ -37,7 +37,7 @@ export default function Home() {
         <h1 className={styles.title}>Bienvenido a novaERP</h1>
 
         <p className={styles.description}>Plataforma de proveedores</p>
-        {user === null && <Button onClick={handleClick}>Iniciar Sesión</Button>}
+        {user === null && <Button onClick={handleClick}>Iniciar sesión</Button>}
         {user && user.avatar && (
           <div>
             <Avatar

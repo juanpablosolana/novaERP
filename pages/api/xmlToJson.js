@@ -12,7 +12,8 @@ export default function handler(req, res) {
         contentXML: `${data}`,
       })
       fetch(
-        `https://nova-erp.vercel.app/api/cfdiToJson?&re=${jsonCfdi.emisor.rfc}&rr=${jsonCfdi.receptor.rfc}&tt=${jsonCfdi.total}&id=${jsonCfdi.timbreFiscal.uuid}`
+        /* https://nova-erp.vercel.app/ */
+        `http://localhost:3000/api/cfdiToJson?&re=${jsonCfdi.emisor.rfc}&rr=${jsonCfdi.receptor.rfc}&tt=${jsonCfdi.total}&id=${jsonCfdi.timbreFiscal.uuid}`
       )
         .then((resp) => resp.json())
         .then((data) => {
