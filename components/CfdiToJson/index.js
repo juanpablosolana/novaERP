@@ -13,7 +13,7 @@ export default function Cfdi({ cfdiUrl }) {
 
   const fetcher = _ =>
     /* https://nova-erp.vercel.app/ */
-    fetch(`/api/xmlToJson/?id=${cfdiUrl}`).then((r) => r.json());
+    fetch(`https://nova-erp.vercel.app/api/xmlToJson/?id=${cfdiUrl}`).then((r) => r.json());
   let { data } = useSWR(mounted ? '/api/data' : null, fetcher)
 
   return (
